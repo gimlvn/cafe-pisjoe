@@ -63,8 +63,8 @@ const promoPosition = promoOverlay.querySelector('.promo-slider-position');
 const promoPrevious = promoOverlay.querySelector('.promo-slider-prev');
 const promoNext = promoOverlay.querySelector('.promo-slider-next');
 const promoBanners = [
-  'images/promo-banner.jpg',
-  'images/promo-banner-2.jpg'
+  'images/promo-banner.webp',
+  'images/promo-banner-2.webp'
 ];
 let savedScrollStyles = null;
 let promoHintHideTimer = null;
@@ -283,59 +283,75 @@ document.addEventListener('keydown', (event) => {
 // Data menu dan harga terpusat di sini. Tambahkan foto ke images/ dengan nama pada properti image.
 const menuData = {
   drinks: [
-    { name: 'Pisjoe Original', description: 'Es pisang ijo dengan cita rasa khas dan segar.', image: 'images/pisjoe-original.jpg', price: 20000 },
-    { name: 'Pisjoe Choco', description: 'Es pisang ijo dengan sentuhan cokelat.', image: 'images/pisjoe-choco.jpg', price: 23000 },
-    { name: 'Pisjoe Cheese', description: 'Es pisang ijo dengan topping keju.', image: 'images/pisjoe-cheese.jpg', price: 28000 },
-    { name: 'Pisjoe Oreo', description: 'Es pisang ijo dengan topping Oreo.', image: 'images/pisjoe-oreo.jpg', price: 23000 },
-    { name: 'Pisjoe Milo', description: 'Es pisang ijo dengan taburan Milo.', image: 'images/pisjoe-milo.jpg', price: 23000 },
-    { name: 'Pisjoe Biscoff', description: 'Es pisang ijo dengan topping Biscoff.', image: 'images/pisjoe-biscoff.jpg', price: 25000 },
-    { name: 'Pisjoe Cereal', description: 'Es pisang ijo dengan topping sereal.', image: 'images/pisjoe-cereal.jpg', price: 25000 },
-    { name: 'Pisjoe Special', description: 'Es pisang ijo dengan kombinasi topping spesial.', image: 'images/pisjoe-special.jpg', price: 30000 }
+    { name: 'Pisjoe Original', description: 'Es pisang ijo dengan cita rasa khas dan segar.', image: 'images/pisjoe-original.webp', price: 20000 },
+    { name: 'Pisjoe Choco', description: 'Es pisang ijo dengan sentuhan cokelat.', image: 'images/pisjoe-choco.webp', price: 23000 },
+    { name: 'Pisjoe Cheese', description: 'Es pisang ijo dengan topping keju.', image: 'images/pisjoe-cheese.webp', price: 28000 },
+    { name: 'Pisjoe Oreo', description: 'Es pisang ijo dengan topping Oreo.', image: 'images/pisjoe-oreo.webp', price: 23000 },
+    { name: 'Pisjoe Milo', description: 'Es pisang ijo dengan taburan Milo.', image: 'images/pisjoe-milo.webp', price: 23000 },
+    { name: 'Pisjoe Biscoff', description: 'Es pisang ijo dengan topping Biscoff.', image: 'images/pisjoe-biscoff.webp', price: 25000 },
+    { name: 'Pisjoe Cereal', description: 'Es pisang ijo dengan topping sereal.', image: 'images/pisjoe-cereal.webp', price: 25000 },
+    { name: 'Pisjoe Special', description: 'Es pisang ijo dengan kombinasi topping spesial.', image: 'images/pisjoe-special.webp', price: 30000 }
   ],
   foods: [
-    { name: 'Pisang Crispy Coklat', description: 'Pisang crispy dengan saus cokelat dan meses.', image: 'images/pisang-coklat.jpg', price: 25000 },
-    { name: 'Pisang Crispy Keju', description: 'Pisang crispy dengan susu dan keju parut.', image: 'images/pisang-keju.jpg', price: 27000 },
-    { name: 'Pisang Crispy Choco Cheese', description: 'Pisang crispy dengan perpaduan cokelat dan keju.', image: 'images/pisang-choco-cheese.jpg', price: 30000 },
-    { name: 'Pisang Crispy Oreo', description: 'Pisang crispy dengan saus cokelat dan remahan Oreo.', image: 'images/pisang-oreo.jpg', price: 28000 },
-    { name: 'Pisang Crispy Milo', description: 'Pisang crispy dengan taburan Milo.', image: 'images/pisang-milo.jpg', price: 25000 },
-    { name: 'Pisang Crispy Biscoff', description: 'Pisang crispy dengan topping Biscoff.', image: 'images/pisang-biscoff.jpg', price: 30000 },
-    { name: 'Pisang Crispy Caramel', description: 'Pisang crispy dengan saus karamel dan kayu manis.', image: 'images/pisang-caramel.jpg', price: 27000 },
-    { name: 'Pisang Crispy Matcha', description: 'Pisang crispy dengan saus matcha dan cokelat putih.', image: 'images/pisang-matcha.jpg', price: 30000 },
-    { name: 'Pisang Crispy Kacang', description: 'Pisang crispy dengan topping kacang.', image: 'images/pisang-kacang.jpg', price: 27000 },
-    { name: 'Pisang Crispy Original', description: 'Pisang crispy dengan cita rasa original.', image: 'images/pisang-crispy-original.jpg', price: 25000 },
-    { name: 'Pisang Roti', description: 'Olahan pisang dengan roti.', image: 'images/pisang-roti.jpg', price: 28000 },
-    { name: 'Pisang Pancake', description: 'Pancake dengan olahan pisang.', image: 'images/pisang-pancake.jpg', price: 30000 },
-    { name: 'Pisjoe Crispy Box', description: 'Menu andalan ICE PISJOE dalam sajian crispy box.', image: 'images/pisjoe-crispy-box.jpg', price: 35000 }
+    { name: 'Pisang Crispy Coklat', description: 'Pisang crispy dengan saus cokelat dan meses.', image: 'images/pisang-coklat.webp', price: 25000 },
+    { name: 'Pisang Crispy Keju', description: 'Pisang crispy dengan susu dan keju parut.', image: 'images/pisang-keju.webp', price: 27000 },
+    { name: 'Pisang Crispy Choco Cheese', description: 'Pisang crispy dengan perpaduan cokelat dan keju.', image: 'images/pisang-choco-cheese.webp', price: 30000 },
+    { name: 'Pisang Crispy Oreo', description: 'Pisang crispy dengan saus cokelat dan remahan Oreo.', image: 'images/pisang-oreo.webp', price: 28000 },
+    { name: 'Pisang Crispy Milo', description: 'Pisang crispy dengan taburan Milo.', image: 'images/pisang-milo.webp', price: 25000 },
+    { name: 'Pisang Crispy Biscoff', description: 'Pisang crispy dengan topping Biscoff.', image: 'images/pisang-biscoff.webp', price: 30000 },
+    { name: 'Pisang Crispy Caramel', description: 'Pisang crispy dengan saus karamel dan kayu manis.', image: 'images/pisang-caramel.webp', price: 27000 },
+    { name: 'Pisang Crispy Matcha', description: 'Pisang crispy dengan saus matcha dan cokelat putih.', image: 'images/pisang-matcha.webp', price: 30000 },
+    { name: 'Pisang Crispy Kacang', description: 'Pisang crispy dengan topping kacang.', image: 'images/pisang-kacang.webp', price: 27000 },
+    { name: 'Pisang Crispy Original', description: 'Pisang crispy dengan cita rasa original.', image: 'images/pisang-crispy-original.webp', price: 25000 },
+    { name: 'Pisang Roti', description: 'Olahan pisang dengan roti.', image: 'images/pisang-roti.webp', price: 28000 },
+    { name: 'Pisang Pancake', description: 'Pancake dengan olahan pisang.', image: 'images/pisang-pancake.webp', price: 30000 },
+    { name: 'Pisjoe Crispy Box', description: 'Menu andalan ICE PISJOE dalam sajian crispy box.', image: 'images/pisjoe-crispy-box.webp', price: 35000 }
   ]
 };
 
 const menuIndexes = { drinks: 0, foods: 0 };
+const menuSliderViews = {};
+const menuImageCache = new Set();
+const menuNextPreloaders = {};
 
-function renderMenuSlider(type) {
-  const items = menuData[type];
+function cancelMenuImagePreload(type) {
+  const preloader = menuNextPreloaders[type];
+  if (!preloader) return;
+  preloader.image.onload = null;
+  preloader.image.onerror = null;
+  preloader.image.removeAttribute('src');
+  menuNextPreloaders[type] = null;
+}
+
+function preloadMenuImage(type, index) {
+  const item = menuData[type][index];
+  if (!item || menuImageCache.has(item.image)) return;
+
+  const currentPreloader = menuNextPreloaders[type];
+  if (currentPreloader?.path === item.image) return;
+  if (currentPreloader) cancelMenuImagePreload(type);
+
+  const image = new Image();
+  const preloader = { image, path: item.image };
+  image.decoding = 'async';
+  image.onload = () => {
+    menuImageCache.add(item.image);
+    if (menuNextPreloaders[type] === preloader) menuNextPreloaders[type] = null;
+  };
+  image.onerror = () => {
+    if (menuNextPreloaders[type] === preloader) menuNextPreloaders[type] = null;
+  };
+  menuNextPreloaders[type] = preloader;
+  image.src = item.image;
+}
+
+function createMenuSliderView(type) {
   const slide = document.querySelector(`[data-menu-slide="${type}"]`);
-  const position = document.querySelector(`[data-menu-position="${type}"]`);
   const slider = document.querySelector(`[data-menu-slider="${type}"]`);
-  const item = items[menuIndexes[type]];
-  position.textContent = `${items.length ? menuIndexes[type] + 1 : 0}/${items.length}`;
-  slide.replaceChildren();
-  const previousButton = slider.querySelector('.menu-prev');
-  const nextButton = slider.querySelector('.menu-next');
-
-  if (!item) {
-    const emptyMessage = document.createElement('p');
-    emptyMessage.className = 'menu-empty';
-    emptyMessage.textContent = 'Menu belum tersedia.';
-    slide.append(emptyMessage);
-    previousButton.disabled = true;
-    nextButton.disabled = true;
-    return;
-  }
-
   const imageWrap = document.createElement('div');
   imageWrap.className = 'menu-slide-image';
   imageWrap.setAttribute('role', 'img');
-  imageWrap.setAttribute('aria-label', `Foto ${item.name}: segera hadir`);
+
   const fallback = document.createElement('div');
   fallback.className = 'menu-photo-placeholder';
   fallback.setAttribute('aria-hidden', 'true');
@@ -346,21 +362,26 @@ function renderMenuSlider(type) {
   fallbackText.className = 'menu-photo-text';
   fallbackText.textContent = 'Foto menu segera hadir';
   fallback.append(icon, fallbackText);
+
   const image = document.createElement('img');
-  image.hidden = true;
   image.className = 'menu-real-image';
-  image.src = item.image;
-  image.alt = item.name;
-  // Slide aktif perlu dimuat segera karena elemen gambar disembunyikan sampai load selesai.
-  image.loading = 'eager';
+  image.alt = '';
+  image.decoding = 'async';
+  image.loading = 'lazy';
   image.draggable = false;
   image.addEventListener('load', () => {
-    fallback.remove();
-    image.hidden = false;
-    imageWrap.setAttribute('aria-label', `Foto ${item.name}`);
-  }, { once: true });
-  // Gambar yang tidak ditemukan dibiarkan tersembunyi agar fallback tetap rapi.
-  image.addEventListener('error', () => image.remove(), { once: true });
+    const path = image.dataset.menuImagePath;
+    fallback.hidden = true;
+    const currentIndex = menuIndexes[type];
+    imageWrap.setAttribute('aria-label', `Foto ${image.dataset.menuImageName}`);
+    menuImageCache.add(path);
+    if (menuData[type][currentIndex]?.image === path) preloadMenuImage(type, currentIndex + 1);
+  });
+  image.addEventListener('error', () => {
+    const path = image.dataset.menuImagePath;
+    fallback.hidden = false;
+    imageWrap.setAttribute('aria-label', `Foto ${image.dataset.menuImageName}: segera hadir`);
+  });
   imageWrap.append(fallback, image);
 
   const copy = document.createElement('div');
@@ -369,17 +390,67 @@ function renderMenuSlider(type) {
   eyebrow.className = 'eyebrow';
   eyebrow.textContent = type === 'drinks' ? 'MENU MINUMAN' : 'MENU MAKANAN';
   const name = document.createElement('h4');
-  name.textContent = item.name;
   const description = document.createElement('p');
   description.className = 'menu-description';
-  description.textContent = item.description;
   const price = document.createElement('p');
   price.className = 'menu-price';
-  price.textContent = `Rp${new Intl.NumberFormat('id-ID').format(item.price)}`;
   copy.append(eyebrow, name, description, price);
-  slide.append(imageWrap, copy);
-  previousButton.disabled = menuIndexes[type] === 0;
-  nextButton.disabled = menuIndexes[type] === items.length - 1;
+  slide.replaceChildren(imageWrap, copy);
+
+  return {
+    slide,
+    imageWrap,
+    fallback,
+    image,
+    name,
+    description,
+    price,
+    previousButton: slider.querySelector('.menu-prev'),
+    nextButton: slider.querySelector('.menu-next')
+  };
+}
+
+function renderMenuSlider(type, { eager = false } = {}) {
+  const items = menuData[type];
+  const position = document.querySelector(`[data-menu-position="${type}"]`);
+  const item = items[menuIndexes[type]];
+  position.textContent = `${items.length ? menuIndexes[type] + 1 : 0}/${items.length}`;
+
+  if (!item) {
+    const emptyMessage = document.createElement('p');
+    emptyMessage.className = 'menu-empty';
+    emptyMessage.textContent = 'Menu belum tersedia.';
+    document.querySelector(`[data-menu-slide="${type}"]`).replaceChildren(emptyMessage);
+    const slider = document.querySelector(`[data-menu-slider="${type}"]`);
+    slider.querySelector('.menu-prev').disabled = true;
+    slider.querySelector('.menu-next').disabled = true;
+    return;
+  }
+
+  const view = menuSliderViews[type] ?? (menuSliderViews[type] = createMenuSliderView(type));
+  view.name.textContent = item.name;
+  view.description.textContent = item.description;
+  view.price.textContent = `Rp${new Intl.NumberFormat('id-ID').format(item.price)}`;
+  view.previousButton.disabled = menuIndexes[type] === 0;
+  view.nextButton.disabled = menuIndexes[type] === items.length - 1;
+
+  if (view.image.dataset.menuImagePath !== item.image) {
+    const pendingPreload = menuNextPreloaders[type];
+    const nextItem = items[menuIndexes[type] + 1];
+    if (pendingPreload && pendingPreload.path !== item.image && pendingPreload.path !== nextItem?.image) {
+      cancelMenuImagePreload(type);
+    }
+    view.fallback.hidden = false;
+    view.imageWrap.setAttribute('aria-label', `Foto ${item.name}: segera hadir`);
+    view.image.dataset.menuImagePath = item.image;
+    view.image.dataset.menuImageName = item.name;
+    view.image.alt = item.name;
+    view.image.loading = eager ? 'eager' : 'lazy';
+    view.image.src = item.image;
+  } else if (view.image.complete && view.image.naturalWidth > 0) {
+    view.fallback.hidden = true;
+    view.imageWrap.setAttribute('aria-label', `Foto ${item.name}`);
+  }
 }
 
 function moveMenu(type, direction) {
@@ -387,7 +458,7 @@ function moveMenu(type, direction) {
   const nextIndex = menuIndexes[type] + direction;
   if (nextIndex < 0 || nextIndex >= items.length) return;
   menuIndexes[type] = nextIndex;
-  renderMenuSlider(type);
+  renderMenuSlider(type, { eager: true });
   animateMenuSlide(type, direction);
 }
 
