@@ -66,6 +66,7 @@ const promoBanners = [
   'images/promo-banner.webp',
   'images/promo-banner-2.webp'
 ];
+const legacyJpegPath = (path) => path.replace(/\.webp$/i, '.jpg');
 let savedScrollStyles = null;
 let promoHintHideTimer = null;
 let activePromoIndex = 0;
@@ -126,6 +127,16 @@ function buildPromoSlider() {
       image.dataset.loaded = 'true';
     });
     image.addEventListener('error', () => {
+      if (image.dataset.jpegFallback !== 'true' && image.dataset.src.toLowerCase().endsWith('.webp')) {
+        image.dataset.jpegFallback = 'true';
+        image.src = legacyJpegPath(image.dataset.src);
+        if (image.complete && image.naturalWidth > 0) {
+          image.hidden = false;
+          placeholder.hidden = true;
+          image.dataset.loaded = 'true';
+        }
+        return;
+      }
       image.hidden = true;
       placeholder.hidden = false;
       image.dataset.failed = 'true';
@@ -379,6 +390,15 @@ function createMenuSliderView(type) {
   });
   image.addEventListener('error', () => {
     const path = image.dataset.menuImagePath;
+    if (image.dataset.jpegFallback !== 'true' && path.toLowerCase().endsWith('.webp')) {
+      image.dataset.jpegFallback = 'true';
+      image.src = legacyJpegPath(path);
+      if (image.complete && image.naturalWidth > 0) {
+        fallback.hidden = true;
+        imageWrap.setAttribute('aria-label', `Foto ${image.dataset.menuImageName}`);
+      }
+      return;
+    }
     fallback.hidden = false;
     imageWrap.setAttribute('aria-label', `Foto ${image.dataset.menuImageName}: segera hadir`);
   });
@@ -444,6 +464,7 @@ function renderMenuSlider(type, { eager = false } = {}) {
     view.imageWrap.setAttribute('aria-label', `Foto ${item.name}: segera hadir`);
     view.image.dataset.menuImagePath = item.image;
     view.image.dataset.menuImageName = item.name;
+    delete view.image.dataset.jpegFallback;
     view.image.alt = item.name;
     view.image.loading = eager ? 'eager' : 'lazy';
     view.image.src = item.image;
