@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#fff4dc">
+  <meta name="description" content="Ajukan permintaan reservasi Indoor, Rooftop, atau Area Privat di CAFE PISJOE.">
+  <title>Reservasi — CAFE PISJOE</title>
+  <script>
+    (() => {
+      let theme = 'light';
+      try {
+        const savedTheme = localStorage.getItem('ice-pisjoe-theme');
+        if (savedTheme === 'light' || savedTheme === 'dark') theme = savedTheme;
+        else if (window.matchMedia?.('(prefers-color-scheme: dark)').matches) theme = 'dark';
+      } catch {
+        if (window.matchMedia?.('(prefers-color-scheme: dark)').matches) theme = 'dark';
+      }
+      document.documentElement.dataset.theme = theme;
+    })();
+  </script>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="reservasi.css">
+  <script src="reservasi.js" defer></script>
+</head>
+<body class="reservation-page" id="top">
+  <header class="site-header">
+    <nav class="navbar container" aria-label="Navigasi utama">
+      <a class="brand" href="index.html#beranda" aria-label="CAFE PISJOE, beranda"><img class="brand-logo" src="images/logo.png" alt="Logo CAFE PISJOE"><span>CAFE <strong>PISJOE</strong></span></a>
+      <div class="nav-links" id="nav-links">
+        <a href="index.html#beranda">Beranda</a>
+        <a href="index.html#tentang">Tentang</a>
+        <a href="index.html#menu">Menu</a>
+        <a href="reservasi.html" aria-current="page">Reservasi</a>
+        <a href="index.html#lokasi">Kontak</a>
+        <a class="nav-cta" href="#form-reservasi">Reservasi Sekarang <span aria-hidden="true">↗</span></a>
+      </div>
+      <div class="navbar-actions">
+        <button class="menu-toggle" type="button" aria-label="Buka menu navigasi" aria-expanded="false" aria-controls="nav-links"><span></span><span></span></button>
+        <button class="theme-toggle" type="button" aria-label="Aktifkan mode gelap" aria-pressed="false"><span class="theme-toggle-icon" aria-hidden="true">☀️</span></button>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="reservation-hero">
+      <div class="container reservation-hero-grid">
+        <div class="reservation-hero-copy">
+          <p class="eyebrow"><span class="dot"></span> MOMEN BAIK DIMULAI DI SINI</p>
+          <h1>Temukan Ruang Terbaik untuk <em>Momen Anda</em></h1>
+          <p class="reservation-lead">Dari meeting produktif hingga acara spesial, pilih area yang sesuai dengan kebutuhan Anda di ICE PISJOE.</p>
+          <a class="button button-dark" href="#pilih-area">Pilih Area <span aria-hidden="true">↓</span></a>
+        </div>
+        <div class="reservation-hero-photo">
+          <img src="images/hero.jpg" alt="Suasana CAFE PISJOE" fetchpriority="high">
+          <span class="reservation-photo-caption">Ruang untuk berkumpul dan berbagi cerita.</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="reservation-section reservation-areas" id="pilih-area">
+      <div class="container">
+        <div class="reservation-section-heading">
+          <p class="eyebrow">PILIH SUASANANYA</p>
+          <h2>Area untuk <em>kebutuhan Anda.</em></h2>
+          <p>Pilih area yang paling sesuai. Detail harga, fasilitas, kapasitas, dan ketersediaan akan dikonfirmasi oleh admin.</p>
+        </div>
+        <div class="reservation-area-grid">
+          <article class="reservation-area-card">
+            <div class="reservation-area-photo"><img src="images/interior-cafe.jpg" alt="Area dalam CAFE PISJOE" loading="lazy"></div>
+            <div class="reservation-area-content">
+              <p class="eyebrow">NYAMAN DI DALAM</p>
+              <h3>Indoor Cafe</h3>
+              <p>Area dalam kafe untuk bertemu, bekerja, belajar bersama, dan menikmati suasana nyaman.</p>
+              <dl class="reservation-area-details">
+                <div><dt>Kapasitas</dt><dd>Perlu konfirmasi admin</dd></div>
+                <div><dt>Fasilitas</dt><dd>Perlu konfirmasi admin</dd></div>
+              </dl>
+              <button class="button button-outline reservation-select-area" type="button" data-area="indoor">Pilih Area Ini <span aria-hidden="true">→</span></button>
+            </div>
+          </article>
+          <article class="reservation-area-card">
+            <div class="reservation-area-photo"><img src="images/rooftop.jpg" alt="Area rooftop CAFE PISJOE" loading="lazy"></div>
+            <div class="reservation-area-content">
+              <p class="eyebrow">SUASANA TERBUKA</p>
+              <h3>Rooftop</h3>
+              <p>Area rooftop untuk berkumpul, menikmati suasana terbuka, dan mengadakan acara bersama.</p>
+              <dl class="reservation-area-details">
+                <div><dt>Kapasitas</dt><dd>Perlu konfirmasi admin</dd></div>
+                <div><dt>Fasilitas</dt><dd>Perlu konfirmasi admin</dd></div>
+              </dl>
+              <button class="button button-outline reservation-select-area" type="button" data-area="rooftop">Pilih Area Ini <span aria-hidden="true">→</span></button>
+            </div>
+          </article>
+          <article class="reservation-area-card">
+            <div class="reservation-area-photo reservation-private-photo">
+              <img src="images/room-privat.jpg" alt="Room Privat ICE PISJOE" loading="lazy">
+              <div class="reservation-private-placeholder reservation-image-fallback" aria-hidden="true">
+                <span class="reservation-placeholder-icon">✦</span>
+                <span>Foto area privat akan ditambahkan</span>
+              </div>
+            </div>
+            <div class="reservation-area-content">
+              <p class="eyebrow">LEBIH PRIVAT</p>
+              <h3>Ruang Privat</h3>
+              <p>Pilihan area khusus untuk pelanggan yang membutuhkan suasana lebih privat, seperti meeting bisnis, diskusi penting, pertemuan keluarga, atau acara terbatas.</p>
+              <dl class="reservation-area-details">
+                <div><dt>Kapasitas</dt><dd>Perlu konfirmasi admin</dd></div>
+                <div><dt>Fasilitas</dt><dd>Perlu konfirmasi admin</dd></div>
+              </dl>
+              <button class="button button-outline reservation-select-area" type="button" data-area="privat">Pilih Area Ini <span aria-hidden="true">→</span></button>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="reservation-section reservation-form-section" id="form-reservasi">
+      <div class="container reservation-form-layout">
+        <div class="reservation-form-intro">
+          <p class="eyebrow">LANGKAH BERIKUTNYA</p>
+          <h2>Ajukan <em>reservasi.</em></h2>
+          <p>Isi detail yang diperlukan. Permintaan Anda akan diteruskan ke admin melalui WhatsApp untuk diperiksa.</p>
+          <div class="reservation-notice">
+            <span aria-hidden="true">i</span>
+            <p>Reservasi akan dikonfirmasi oleh admin berdasarkan ketersediaan area dan jadwal. Informasi harga, fasilitas, serta ketentuan reservasi akan disampaikan melalui WhatsApp.</p>
+          </div>
+        </div>
+
+        <form class="reservation-form" id="reservation-form" novalidate>
+          <div class="reservation-form-grid">
+            <div class="reservation-field">
+              <label for="customer-name">Nama lengkap <span aria-hidden="true">*</span></label>
+              <input id="customer-name" name="name" type="text" autocomplete="name" required>
+            </div>
+            <div class="reservation-field">
+              <label for="customer-phone">Nomor WhatsApp <span aria-hidden="true">*</span></label>
+              <input id="customer-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" aria-describedby="phone-help" required>
+              <small id="phone-help">Masukkan nomor yang dapat dihubungi, termasuk kode negara bila diperlukan.</small>
+            </div>
+            <div class="reservation-field">
+              <label for="customer-email">Email <span>(opsional)</span></label>
+              <input id="customer-email" name="email" type="email" autocomplete="email">
+            </div>
+            <div class="reservation-field">
+              <label for="event-type">Jenis reservasi <span aria-hidden="true">*</span></label>
+              <select id="event-type" name="eventType" required>
+                <option value="">Pilih jenis reservasi</option>
+                <option>Meeting atau rapat</option>
+                <option>Kerja kelompok</option>
+                <option>Ulang tahun</option>
+                <option>Arisan atau kumpul keluarga</option>
+                <option>Acara komunitas</option>
+                <option>Acara privat</option>
+                <option>Lainnya</option>
+              </select>
+            </div>
+            <div class="reservation-field">
+              <label for="reservation-area">Area pilihan <span aria-hidden="true">*</span></label>
+              <select id="reservation-area" name="area" required>
+                <option value="">Pilih area</option>
+                <option value="indoor">Indoor</option>
+                <option value="rooftop">Rooftop</option>
+                <option value="privat">Area Privat</option>
+              </select>
+            </div>
+            <div class="reservation-field">
+              <label for="reservation-date">Tanggal reservasi <span aria-hidden="true">*</span></label>
+              <input id="reservation-date" name="date" type="date" required>
+            </div>
+            <div class="reservation-field">
+              <label for="reservation-time">Waktu mulai <span aria-hidden="true">*</span></label>
+              <input id="reservation-time" name="time" type="time" required>
+            </div>
+            <div class="reservation-field">
+              <label for="reservation-duration">Durasi reservasi <span aria-hidden="true">*</span></label>
+              <select id="reservation-duration" name="duration" required>
+                <option value="">Pilih durasi</option>
+                <option>1 jam</option><option>2 jam</option><option>3 jam</option><option>4 jam</option><option>Lebih dari 4 jam</option>
+              </select>
+            </div>
+            <div class="reservation-field reservation-field-full">
+              <label for="guest-count">Jumlah tamu <span aria-hidden="true">*</span></label>
+              <input id="guest-count" name="guests" type="number" min="1" step="1" inputmode="numeric" required>
+            </div>
+            <div class="reservation-field reservation-field-full">
+              <label for="event-purpose">Keperluan Acara</label>
+              <textarea id="event-purpose" name="purpose" rows="3" placeholder="Ceritakan kebutuhan meeting atau acara Anda"></textarea>
+            </div>
+            <div class="reservation-field reservation-field-full">
+              <label for="reservation-notes">Permintaan tambahan atau catatan <span>(opsional)</span></label>
+              <textarea id="reservation-notes" name="notes" rows="3"></textarea>
+            </div>
+          </div>
+          <button class="button button-dark reservation-submit" type="submit">Kirim Permintaan Reservasi via WhatsApp <span aria-hidden="true">↗</span></button>
+          <p class="reservation-form-status" id="reservation-status" role="status" aria-live="polite"></p>
+          <p class="reservation-submit-note">WhatsApp akan terbuka dengan ringkasan permintaan. Tekan tombol kirim di WhatsApp untuk menyampaikannya. Reservasi belum terkonfirmasi sampai admin menyetujuinya.</p>
+        </form>
+      </div>
+    </section>
+
+    <section class="reservation-section reservation-faq-section">
+      <div class="container reservation-faq-layout">
+        <div class="reservation-section-heading">
+          <p class="eyebrow">INFORMASI RESERVASI</p>
+          <h2>Pertanyaan <em>umum.</em></h2>
+        </div>
+        <div class="reservation-faq-list">
+          <details><summary>Bagaimana cara melakukan reservasi?</summary><p>Isi formulir, lalu pilih kirim melalui WhatsApp. WhatsApp akan menyiapkan pesan; tekan tombol kirim di sana agar permintaan diterima admin. Admin akan menghubungi Anda untuk konfirmasi.</p></details>
+          <details><summary>Apakah saya bisa memesan area privat?</summary><p>Anda dapat memilih Area Privat pada formulir. Ketersediaan, harga, dan detailnya akan dikonfirmasi oleh admin melalui WhatsApp.</p></details>
+          <details><summary>Apakah reservasi langsung dikonfirmasi?</summary><p>Tidak. Formulir ini mengirimkan permintaan, bukan konfirmasi otomatis. Reservasi dianggap terkonfirmasi setelah admin menyetujuinya.</p></details>
+          <details><summary>Apakah harga dan fasilitas setiap area sama?</summary><p>Informasi harga dan fasilitas setiap area akan disampaikan oleh admin saat menindaklanjuti permintaan Anda.</p></details>
+          <details><summary>Bisakah saya meminta pengaturan khusus untuk acara?</summary><p>Tuliskan kebutuhan atau permintaan Anda pada kolom keperluan acara dan catatan. Admin akan memberi tahu detail yang dapat disiapkan.</p></details>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-main">
+      <div><a class="brand footer-brand" href="index.html#beranda"><img class="brand-logo" src="images/logo.png" alt="Logo CAFE PISJOE"><span>CAFE <strong>PISJOE</strong></span></a><p>Tempat singgah untuk rasa yang akrab<br>dan cerita yang menyenangkan.</p></div>
+      <div class="footer-tagline">PISJOE-IN AJA! <span>☺</span></div>
+      <div class="footer-social"><a href="reservasi.html" aria-current="page">RESERVASI ↗</a><a href="https://www.instagram.com/anggimlvn?stkn=bTQ1YjJnZW9vN2g3" target="_blank" rel="noreferrer">INSTAGRAM ↗</a><a href="index.html#lokasi">LOKASI ↗</a></div>
+    </div>
+    <div class="container footer-bottom"><span>© <span id="year">2026</span> CAFE PISJOE. Dibuat dengan sepenuh hati.</span><a href="#top">KEMBALI KE ATAS ↑</a></div>
+  </footer>
+</body>
+</html>
